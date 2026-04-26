@@ -1,0 +1,258 @@
+---
+import { Button, Collapse, Spoiler, Timeline } from 'astro-pure/user'
+import PageLayout from '@/layouts/CommonPage.astro'
+import Substats from '@/components/about/Substats.astro'
+import ToolSection from '@/components/about/ToolSection.astro'
+
+import logicProIcon from '@/assets/tools/logicpro.png'
+
+const headings = [
+  { depth: 2, slug: 'hobbies', text: 'Hobbies' },
+  { depth: 2, slug: 'tools', text: 'Skills & Tools' },
+  { depth: 2, slug: 'social-networks', text: 'Social Networks' },
+  // { depth: 2, slug: 'gossips', text: 'Gossips' },
+  // { depth: 2, slug: 'about-blog', text: 'About Blog' }
+]
+---
+
+<PageLayout title='About' {headings} comment>
+  <p>音频算法工程师 / 电吉他手</p>
+  <p>
+    毕业于北京理工大学电子科学与技术专业，目前在Hotone（电吉他效果器公司）做音频算法工程师。
+  </p>
+  <p>
+    座右铭： <Spoiler>臨淵羨魚，不如退而結網。</Spoiler>
+  </p>
+  <!-- <Button title='Sponsor Me' class='w-fit' href='/projects#sponsorship' variant='ahead' /> -->
+
+  {/* general-talk */}
+  <h2 id='hobbies'>Hobbies</h2>
+  <ul>
+    <li> <b>吉他：</b> 琴龄近十年的菜鸡吉他手，主要弹电吉他，因为在效果器公司做算法所以对各类效果器有所了解，欢迎一起交流（让我给你推销我们公司的产品）。</li>
+    <li>
+      <b>乐队：</b>喜欢许多摇滚乐队，比如 <b>My Chemical Romance / Yorushika / Linkin Park / U2 / Queen / Pink Floyd / The Beatles / 万能青年旅店 / 草东没有派对 / ...</b> </br>
+      组过几个自己的乐队，目前的乐队主玩日摇，欢迎有同样音乐品味的朋友来交流，也欢迎来跟我一起组一辈子乐队。
+    </li>
+    <li><b>游戏：</b>喜欢玩 <b>League of Legends</b> 以及各种单机游戏，比如 <b>隻狼 / Red Dead Redemption II / Grand Theft Auto / Assassin's Creed / 黑神话：悟空 / ...</b> </br>
+      欢迎同好来一起开黑联机。
+    </li>
+    <li><b>编程：</b> 写写代码，后续会更新一些开源项目，目前在学习神经网络，后续也会发学习笔记。</li>
+    <li><b>养猫：</b> 养了一只橘猫，名叫鸡米花，欢迎大家来看它的美照。</li>
+  </ul>
+
+  {/* tools */}
+  <h2 id='tools'>Skills & Tools</h2>
+  <ToolSection
+    class='mb-5'
+    title='Skill Stack'
+    tools={[
+      {
+        name: 'C',
+        description: 'System Programming',
+        href: 'https://www.c-language.org/',
+        icon: import('@/assets/skills/c.svg?raw')
+      },
+      {
+        name: 'Python',
+        description: 'General Purpose Language',
+        href: 'https://www.python.org/',
+        icon: import('@/assets/skills/python.svg?raw')
+      },
+      {
+        name: 'Assembly',
+        description: 'Low Level Language',
+        href: 'https://en.wikipedia.org/wiki/Assembly_language',
+        icon: import('@/assets/skills/assembly.svg?raw')
+      },
+      {
+        name: 'Golang',
+        description: 'Concurrent Programming',
+        href: 'https://go.dev/',
+        icon: import('@/assets/skills/golang.svg?raw')
+      },
+      {
+        name: 'Javascript',
+        description: 'Web Scripting Language',
+        href: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript',
+        icon: import('@/assets/skills/javascript.svg?raw')
+      },
+      {
+        name: 'Typescript',
+        description: 'Typed JavaScript Superset',
+        href: 'https://www.typescriptlang.org/',
+        icon: import('@/assets/skills/typescript.svg?raw')
+      },
+      {
+        name: 'React Native',
+        description: 'Mobile App Framework',
+        href: 'https://reactnative.dev/',
+        icon: import('@/assets/skills/reactnative.svg?raw')
+      },
+      {
+        name: 'Matlab',
+        description: 'Numerical Computing',
+        href: 'https://www.mathworks.com/products/matlab.html',
+        icon: import('@/assets/skills/matlab.svg?raw')
+      },
+      {
+        name: 'Markdown',
+        description: 'Lightweight Markup',
+        href: 'https://www.markdownguide.org/',
+        icon: import('@/assets/skills/markdown.svg?raw')
+      },
+      {
+        name: 'LaTex',
+        description: 'Document Preparation',
+        href: 'https://www.latex-project.org/',
+        icon: import('@/assets/skills/latex.svg?raw')
+      }
+    ]}
+  />
+  <ToolSection
+    class='mb-5'
+    title='Studio'
+    tools={[
+      {
+        name: 'Visual Studio Code',
+        description: 'Code Editor',
+        href: 'https://code.visualstudio.com/',
+        icon: import('@/assets/tools/vscode.svg?raw')
+      },
+      {
+        name: 'Visual Studio',
+        description: 'IDE',
+        href: 'https://visualstudio.microsoft.com/',
+        icon: import('@/assets/tools/neovim.svg?raw')
+      },
+      {
+        name: 'JetBrains IDE',
+        description: 'IDE',
+        href: 'https://www.jetbrains.com/',
+        icon: import('@/assets/tools/jetbrains.svg?raw')
+      },
+      {
+        name: 'Logic Pro',
+        description: 'DAW',
+        href: 'https://www.apple.com/logic-pro/',
+        icon: logicProIcon
+      }
+    ]}
+  />
+  <ToolSection
+    class='mb-5'
+    title='Environment'
+    tools={[
+      {
+        name: 'Windows 11',
+        description: 'R7 9700X & RTX 5070 Ti',
+        href: 'https://news.microsoft.com/windows11-general-availability/',
+        icon: import('@/assets/tools/windows11.svg?raw')
+      },
+      {
+        name: 'MacOS Tahoe',
+        description: 'MacMini M4',
+        href: 'https://www.apple.com/macos/',
+        icon: import('@/assets/tools/apple.svg?raw')
+      },
+      {
+        name: 'Fedora',
+        description: 'Linux Distribution',
+        href: 'https://fedoraproject.org/',
+        icon: import('@/assets/tools/archlinux.svg?raw')
+      }
+    ]}
+  />
+
+  {/* social-networks */}
+  <h2 id='social-networks'>Social Networks</h2>
+  <!-- <p>
+    Lorem ipsum dolor sit amet, vidit suscipit at mei. Quem denique mea id. Usu ei regione indoctum
+    dissentiunt, cu meliore fuisset mei, vel quod voluptua ne.
+  </p> -->
+  <Substats
+    stats={[
+      {
+        platform: 'GitHub',
+        icon: 'github',
+        link: 'https://github.com/greatbastard',
+        text: 'followers',
+        api: 'github/greatbastard'
+      },
+      // {
+      //   platform: 'Telegram',
+      //   icon: 'telegram',
+      //   color: '#2ca5e0',
+      //   link: 'https://t.me/cworld0_cn',
+      //   text: 'subscribers',
+      //   api: 'telegram/cworld0_cn'
+      // },
+      {
+        platform: 'Steam',
+        icon: 'steam',
+        color: '#50769d',
+        link: 'https://steamcommunity.com/profiles/76561198341512249/',
+        text: 'games',
+        api: 'steamgames/76561198341512249'
+      }
+    ]}
+  />
+
+  <!-- {/* gossips */}
+  <h2 id='gossips'>Gossips</h2>
+  <Collapse title='Lorem ipsum'>
+    Lorem ipsum dolor sit amet, vidit suscipit at mei. Quem denique mea id. Usu ei regione indoctum
+    dissentiunt, cu meliore fuisset mei, vel quod voluptua ne. Ex dicat impedit mel, at eum oratio
+    possit voluptatum.
+  </Collapse>
+
+  {/* about-blog */}
+  <h2 id='about-blog'>About Blog</h2>
+  <p>Website history:</p>
+  <Timeline
+    events={[
+      {
+        date: '2024-04-29',
+        content:
+          'Website refactored using <a href="https://astro.build/" target="_blank">Astro</a> and <a href="https://github.com/srleom/astro-theme-resume" target="_blank">Astro Theme Resume</a>'
+      },
+      {
+        date: '2024-07-26',
+        content:
+          'Website abstracted as a theme and published on <a href="https://github.com/cworld1/astro-theme-pure"target="_blank">Github</a>'
+      },
+      {
+        date: '2024-07-27',
+        content: 'Began writing website docs'
+      }
+    ]}
+  />
+  <p>
+    The smooth operation and personalized customization of website also rely on the resources and
+    technical support provided by the following excellent projects/service providers:
+  </p>
+  <ul>
+    <li>Domain: <a href='#' target='_blank'>Vercel</a></li>
+    <li>
+      Framework & Theme: <a href='https://astro.build/' target='_blank'>Astro</a> + <a
+        href='https://github.com/cworld1/astro-theme-pure'
+        target='_blank'>Astro Theme Pure</a
+      >
+    </li>
+    <li>
+      Site hosting: <a href='https://vercel.com/' target='_blank'>Vercel</a>
+    </li>
+    <li>
+      CI/CD: <a href='https://vercel.com/workflow' target='_blank'>Vercel Workflow</a>
+    </li>
+    <li>Comment system: <a href='https://waline.js.org' target='_blank'>Waline</a></li>
+    <li>
+      Visits: <a href='https://supabase.com/' target='_blank'>Supabase</a> +
+      <a href='https://waline.js.org/' target='_blank'>Waline</a>
+    </li>
+    <li>
+      Other statistics: <a href='https://github.com/spencerwooo/substats' target='_blank'
+        >Substats</a
+      >
+    </li>
+  </ul> -->
+</PageLayout>
