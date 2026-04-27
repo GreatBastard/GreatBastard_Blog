@@ -11,6 +11,8 @@ import Section from '@/components/home/Section.astro'
 import SkillLayout from '@/components/home/SkillLayout.astro'
 import config from '@/site-config'
 
+export const prerender = true
+
 const skillstack = ['C', 'Python', 'Assembly', 'Golang', 'Javascript', 'Typescript', 'React Native', 'Matlab', 'Markdown', 'LaTex']
 const interest = ['Guitar', 'Game', 'Cook', 'Code']
 // const backend = ['Vercel', 'Waline']
@@ -206,6 +208,6 @@ if (!images[imagePath])
         <!-- <SkillLayout title='Backend' skills={backend} /> -->
       </Section>
     </div>
-    <!-- <Quote class='mt-12' /> -->
+    <Quote class='mt-12' />
   </main>
 </PageLayout>
