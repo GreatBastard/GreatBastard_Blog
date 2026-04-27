@@ -9,7 +9,7 @@ tags:
   - 乐队
   - 吉他
 language: 'Chinese'
-heroImage: { src: './thumbnail.png', color: '#9698C1' }
+heroImage: { src: 'https://greatbastard-blog-1309491218.cos.ap-chengdu.myqcloud.com/img/Articles/Distortion_Effector/cover.png', inferSize: true }
 ---
 
 # 初次尝试
