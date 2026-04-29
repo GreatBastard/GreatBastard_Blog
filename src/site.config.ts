@@ -164,11 +164,11 @@ export const integ: IntegrationUserConfig = {
   waline: {
     enable: true,
     // Server service link
-    server: 'https://astro-theme-pure-waline.arthals.ink/',
+    server: 'https://waline.greatbastard.top/',
     // Show meta info for comments
-    showMeta: false,
+    showMeta: true,
     // Refer https://waline.js.org/en/guide/features/emoji.html
-    emoji: ['bmoji', 'weibo'],
+    emoji: ['bmoji', 'weibo', 'alus', 'bilibili', 'tieba', 'tw-emoji'],
     // Refer https://waline.js.org/en/reference/client/props.html
     additionalConfigs: {
       // search: false,
@@ -178,7 +178,7 @@ export const integ: IntegrationUserConfig = {
         reaction0: 'Like',
         placeholder: 'Welcome to comment. (Email to receive replies. Login is unnecessary)'
       },
-      imageUploader: false
+      imageUploader: true
     }
   }
 }
