@@ -161,24 +161,11 @@ export const integ: IntegrationUserConfig = {
     }
   },
   // Comment system
-  waline: {
+  twikoo: {
     enable: true,
-    // Server service link
-    server: 'https://waline.greatbastard.top/',
-    // Show meta info for comments
-    showMeta: true,
-    // Refer https://waline.js.org/en/guide/features/emoji.html
-    emoji: ['bmoji', 'weibo', 'alus', 'bilibili', 'tieba', 'tw-emoji'],
-    // Refer https://waline.js.org/en/reference/client/props.html
+    envId: 'https://twikoo.greatbastard.top/.netlify/functions/twikoo',
     additionalConfigs: {
-      // search: false,
-      pageview: true,
-      comment: true,
-      locale: {
-        reaction0: 'Like',
-        placeholder: 'Welcome to comment. (Email to receive replies. Login is unnecessary)'
-      },
-      imageUploader: true
+      lang: 'zh-CN'
     }
   }
 }

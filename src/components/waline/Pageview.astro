@@ -1,27 +1,32 @@
 ---
-// https://waline.js.org/en/guide/features/pageview.html#use-alone
 import config from '@/site-config'
+
+interface Props { comment?: boolean }
+const { comment = false } = Astro.props
 ---
 
-<script
-  is:inline
-  type='module'
-  data-astro-rerun
-  define:vars={{ npmCDN: config.npmCDN, walineServer: config.integ.waline.server }}
->
-  async function loadPageview() {
+<script is:inline type='module' data-astro-rerun define:vars={{ npmCDN: config.npmCDN, envId: config.integ.twikoo.envId, region: config.integ.twikoo.region, path: Astro.url.pathname, comment }}>
+  async function loadTwikooStats() {
     try {
-      const pageview = await import(`${npmCDN}/@waline/client@v3/dist/pageview.js`)
-      const el = document.querySelector('.waline-pageview-count')
-      if (el) {
-        pageview.pageviewCount({
-          serverURL: walineServer,
-          path: window.location.pathname
+      if (!envId || envId === 'YOUR_TWIKOO_ENV_ID') return
+      if (!globalThis.twikoo) {
+        await new Promise((resolve, reject) => {
+          const script = document.createElement('script')
+          script.src = `${npmCDN}/twikoo@1.7.22/dist/twikoo.min.js`
+          script.onload = resolve
+          script.onerror = reject
+          document.head.appendChild(script)
         })
       }
-    } catch (e) {
-      console.error('Failed to load Waline pageview:', e)
+      if (comment) {
+        const result = await globalThis.twikoo.getCommentsCount({ envId, ...(region ? { region } : {}), urls: [path] })
+        const el = document.querySelector('.twikoo-comment-count')
+        if (el) el.textContent = String(result[0]?.count ?? 0)
+      }
+    } catch (error) {
+      console.error('Failed to load Twikoo stats:', error)
     }
   }
-  loadPageview()
+
+  loadTwikooStats()
 </script>

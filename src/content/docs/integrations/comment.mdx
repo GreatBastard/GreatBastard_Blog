@@ -6,14 +6,14 @@ order: 3
 
 import { Aside } from 'astro-pure/user'
 
-## Waline Comment System
+## Twikoo Comment System
 
 <Aside>
-  This theme has integrated the Waline comment system. You can configure it at the
-  `integrationConfig.waline` in file `src/site.config.ts`.
+  This theme has integrated the Twikoo comment system. You can configure it at the
+  `integrationConfig.twikoo` in file `src/site.config.ts`.
 </Aside>
 
-The theme's comment, read statistics, likes, and other functionalities are all provided by [Waline](https://waline.js.org/).
+The theme's comment, article visit statistics, and comment counts are provided by [Twikoo](https://twikoo.js.org/).
 
 ### Remove
 
@@ -26,17 +26,13 @@ Remove it by the following steps:
    ```ts title="src/site.config.ts"
    export const integ: IntegrationUserConfig = {
      // ...
-     waline: {
+     twikoo: {
        enable: false // [!code highlight]
      }
    }
    ```
 
-2. Remove dependency `@waline/client`:
-
-   ```shell
-   bun remove @waline/client
-   ```
+2. Remove the Twikoo configuration and component files:
 
 3. Remove folder `src/components/waline`.
 
@@ -56,21 +52,18 @@ You can refer to its documentation for configuration, and it is recommended to u
 
 ### Configuration
 
-Then you can configure the Waline comment system in the `integrationConfig.server`.
+Then configure the Twikoo comment system in `src/site.config.ts`.
 
 ```ts title="src/site.config.ts"
 export const integ: IntegrationUserConfig = {
   // ...
-  waline: {
+  twikoo: {
     enable: true,
-    // Server service link
-    server: 'https://astro-theme-pure-waline.arthals.ink/', // [!code highlight]
-    // Refer https://waline.js.org/en/guide/features/emoji.html
-    emoji: ['bmoji', 'weibo'],
-    // Refer https://waline.js.org/en/reference/client/props.html
+    envId: 'YOUR_TWIKOO_ENV_ID', // [!code highlight]
+    // 腾讯云环境可填写 region，例如 ap-shanghai
+    region: undefined,
     additionalConfigs: {
-      pageview: true,
-      comment: true
+      lang: 'en'
       // ...
     }
   }

@@ -46,17 +46,15 @@ export const IntegrationConfigSchema = () =>
       options: z.record(z.string(), z.any()).default({ className: 'zoomable' })
     }),
 
-    /** The Waline comment system */
-    waline: z.object({
-      /** Enable the Waline comment system. */
+    /** The Twikoo comment system */
+    twikoo: z.object({
+      /** Enable the Twikoo comment system. */
       enable: z.boolean().default(false),
-      /** The server to use for the Waline comment system. */
-      server: z.string().optional(),
-      /** Show meta info for comments */
-      showMeta: z.boolean().default(true),
-      /** The emoji to use for the Waline comment system. */
-      emoji: z.array(z.string()).optional(),
-      /** Additional configurations for the Waline comment system. */
+      /** Twikoo environment ID or backend URL. */
+      envId: z.string().optional(),
+      /** Tencent Cloud environment region. */
+      region: z.string().optional(),
+      /** Additional configurations for Twikoo. */
       additionalConfigs: z.record(z.string(), z.any()).default({})
     })
   })
