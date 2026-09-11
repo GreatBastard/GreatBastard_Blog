@@ -9,8 +9,8 @@ language: 'Chinese'
 heroImage: { src: 'https://greatbastard-blog-1309491218.cos.ap-chengdu.myqcloud.com/img/Articles/r2c-fft/cover.png', inferSize: true }
 ---
 
-# 数学原理
-## Complex to Complex (C2C) DIT-FFT
+## 数学原理
+### Complex to Complex (C2C) DIT-FFT
 对于N点序列$x[n]$，它的离散傅里叶变换 Discrete Fourier Transform (DFT) 为
 $$
 X[k]=\sum_{n=0}^{N-1}x[n]e^{-j2\pi \frac{kn}{N}}=\sum_{n=0}^{N-1}x[n]W_{N}^{kn},\ k=0,\ 1,\ \dots,\ N-1
@@ -33,7 +33,7 @@ $$
 X[k+M]=E[k]-W_{N}^{k}O[k],\ k=0,\ 1,\ \dots,\ M-1
 $$
 
-## Real to Complex (R2C) DIT-FFT
+### Real to Complex (R2C) DIT-FFT
 由于音频信号都是实信号（虚部均为0），将其当成复信号计算 FFT 时会产生很多不必要的冗余计算。<br>
 可以将N点输入实序列$x[n]$按奇偶索引拆分为两个长度为$M=N/2$的子序列：
 $$
@@ -99,7 +99,7 @@ $$X[k]=\mathrm{Re}\{Z[0]\}-\mathrm{Im}\{Z[0]\}, k=\frac{N}{2}$$
 $$X[k]=X^*[N-k], k=\frac{N}{2}+1,\ \frac{N}{2}+2,\ \dots,\ N-1$$
 
 由此得到，要对$N$点实数序列做DFT时，可将这个实数序列当作一个$\frac{N}{2}$点的复序列，对这个复序列进行$\frac{N}{2}$点DFT，再由上式还原得到原本要求的$N$点DFT。<br>
-## Complex to Real (C2R) IFFT
+### Complex to Real (C2R) IFFT
 对于音频信号这样一个实信号，它的频域信号是具有共轭对称性的：
 $$
 X[N-k]=X[k]^*,\ k=1,\ 2,\ ,\dots,\ N-1
@@ -127,7 +127,7 @@ $$
 x[n]=\text{IFFT}\{T[k]\}=x_{e}[n]+jx_{o}[n],\ k=0,\ 1,\ \dots,\ M-1
 $$
 就得到了实部为时域偶数索引项，虚部为时域奇数索引项的复数信号，由于本身该算法在存储复数时实部和虚部就是交替存储的，得到的复数信号同时也是时域的实数信号，无需进行后处理。<br>
-## Radix-4 DIT-FFT
+### Radix-4 DIT-FFT
 本身我们需要做的是128点实数 FFT和复数IFFT，通过R2C和C2R的处理转化成了64点复数 FFT/IFFT，而由于64恰好是4的整数次幂，因此可将常用的 Radix-2 64点 FFT 改为Radix-4 64点 FFT，可将蝶形运算层数从6层缩减至3层，大幅减少循环次数与函数调用次数。<br>
 设序列$x[n]$的长度$N=4^m$，通过抽取将$x[n]$分为四个长度为$\frac{N}{4}$的子序列如下：
 $$
