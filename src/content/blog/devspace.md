@@ -155,6 +155,8 @@ publicBaseUrl: https://devspace.example.com
 devspace serve --port 7676
 ```
 
+---
+
 ## 配置后端自启动服务
 
 ### 先确认 systemd 可用
@@ -243,6 +245,8 @@ sudo systemctl status devspace
 sudo journalctl -u devspace -n 50 --no-pager
 ```
 
+---
+
 ## 后端服务完整验证流程
 
 ### 查看服务状态
@@ -291,6 +295,8 @@ Cloudflare Tunnel
 DevSpace
 ```
 
+---
+
 ## ChatGPT 中添加 MCP 服务
 
 先在 ChatGPT 网页版设置中打开开发人员模式，然后添加新插件，示例如下：
@@ -309,7 +315,9 @@ https://devspace.example.com/mcp
 
 ## 使用效果
 
-完成上述配置之后，就可以随时随地打开 ChatGPT 的网页端/桌面端/手机客户端，会话调用你自己创建的插件进行远程开发，并且走 Chat 额度，不消耗 Codex 额度，愉快地使用无限活力吧！
+完成上述配置之后，就可以随时随地打开 ChatGPT 的网页端/桌面端/手机客户端，会话调用你自己创建的插件进行远程开发，并且走 Chat 通道，不消耗 Codex 额度，愉快地使用无限活力吧！
+
+---
 
 ## 常见问题
 
