@@ -17,6 +17,8 @@ heroImage: { src: 'https://greatbastard-blog-1309491218.cos.ap-chengdu.myqcloud.
 
 ![代理更改重启 WSL 通知](https://greatbastard-blog-1309491218.cos.ap-chengdu.myqcloud.com/img/Articles/wsl-proxy/notice.png)
 
+---
+
 ## 解决方案
 
 如果想做到 **Windows 代理一改，WSL 马上跟着改，而且不再提示重启**，合适的办法是关闭 WSL 的 `autoProxy`，让 WSL 直接使用 Windows 上的代理端口，通过命令随时手动控制 WSL 是否走 Windows 系统代理，不需要重启 WSL，也不会有烦人的通知。
@@ -119,6 +121,8 @@ WSL_PROXY_PORT="7890"
 ```bash
 source ~/.bashrc
 ```
+
+---
 
 ## 日常使用方法
 

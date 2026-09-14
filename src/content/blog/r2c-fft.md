@@ -9,6 +9,7 @@ language: 'Chinese'
 heroImage: { src: 'https://greatbastard-blog-1309491218.cos.ap-chengdu.myqcloud.com/img/Articles/r2c-fft/cover.png', inferSize: true }
 ---
 
+
 ## 数学原理
 ### Complex to Complex (C2C) DIT-FFT
 对于N点序列$x[n]$，它的离散傅里叶变换 Discrete Fourier Transform (DFT) 为

@@ -12,6 +12,7 @@ language: 'Chinese'
 heroImage: { src: 'https://greatbastard-blog-1309491218.cos.ap-chengdu.myqcloud.com/img/Articles/Distortion_Effector/cover.png', inferSize: true }
 ---
 
+
 ## 初次尝试
 
 第一次开始尝试自制效果器还是在去年年底，在CSDN上找到了一个博主自制失真效果器的文章：[自制电吉他效果器 DIY](https://blog.csdn.net/qq_41342525/article/details/105127331)，便照着文章自己做了一下，电路板焊接还算成功，但是由于本身电路设计就很粗糙，最后测试音色感觉太干，不能拿去实际使用。
